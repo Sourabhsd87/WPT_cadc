@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script>
+            function add(){
+                var n = parseInt(document.getElementById('n1').value);
+                var m = parseInt(document.getElementById('n2').value);
+                var ans = n + m;
+
+                document.getElementById('result').value=ans;
+            }
+            function validatedata(numid,errmgs){
+                var num = document.getElementById(numid).value;
+
+                if(num==="" || isNaN(num) )
+                {
+                    document.getElementById(errmgs).innerHTML="Enter numeric value!!"
+
+                    return false;
+                }
+                else
+                {
+                document.getElementById(errmgs).innerHTML="";
+                return true;
+                }
+            }
+            function validateNumbers(){
+                var a = validatedata('n1',"err1");
+                var b = validatedata('n2',"err2");
+
+                if(a && b)
+                {
+                    add();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Number 1 : <input type="text" name="num1" id="n1" ><span style="color: red
+            ;"> *</span><span id="err1"></span>
+            <br><br>
+            Number 2 : <input type="text" name="num2" id="n2" ><span style="color: red
+            ;"> *</span><span id="err2"></span>
+            <br><br>
+            result : <input type="text" name="result" id="result" disabled>
+            <br><br>
+            <button type="button" name="add" id="add" value="add" onclick="validateNumbers()">ADD</button>
+        </form>
+    </body>
+</html>
