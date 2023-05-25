@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script>
+            function run(){
+                var a = parseInt(document.getElementById('num').value);
+                var b = document.getElementById('mgs').value;
+                for(let i=1;i<=a;i++) 
+                {
+                    document.write(b+"<br>");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Enter a number : <input type="text" name="num" id="num" size="1px"><span style="color: red;">*</span><span id=""></span><br><br>
+        Enter a message : <input type="text" name="mgs" id="mgs" size="25px"><br><br>
+        <button type=" button" name="btn" id="id" onclick="run()">RUN</button><br><br>
+    
+    </body>
+</html>
