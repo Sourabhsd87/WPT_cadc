@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of digits</title>
+    <script>
+        function validatenum(numid,error){
+            var a = document.getElementById(numid).value
+
+            if(a==="" || isNaN(a)){
+                document.getElementById(error).innerHTML="Enter numeric value";
+                return false;
+            }
+            else{
+                document.getElementById(error).innerHTML="";
+                return true;
+            }
+        }
+        function sum(){
+            var b = validatenum('num','err')
+            //document.write("aaa");
+            if(b){
+            
+            var a = parseInt(document.getElementById('num').value)
+            var x=0 ;
+            while(a>0){
+                x = x + (a % 10) ;
+                a= Math.trunc(a / 10) ;
+            }
+            document.getElementById('result').value=x;
+            }
+        }
+    </script>
+</head>
+<body>
+    Enter a number : <input type="text" name="num" id="num"><span>*</span><span id="err"></span><br><br>
+
+    <button type="button" name="btn" id="btn" onclick="sum()">Calculate</button><br><br>
+
+    Sun of digits : <input type="text" name="result" id="result" disabled>
+</body>
+</html>
