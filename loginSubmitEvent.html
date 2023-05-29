@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validatepassword(){
+            var pass = document.getElementById('passwd').value
+            var cpass = document.getElementById('cpass').value
+
+            if(pass===cpass){
+                document.getElementById('errpass').innerHTML="";
+                document.getElementById('errcpass').innerHTML="";
+                return true;
+            }
+            else{
+                document.getElementById('errpass').innerHTML=" ";
+                document.getElementById('errcpass').innerHTML="passwords don\'t match";
+                return false;
+            }
+        }
+        function validatedata(){
+            flag = validatepassword();
+            return flag;
+        }
+    </script>
+</head>
+<body>
+    <form  action="validateuser" method="get" onsubmit="return validatedata()">
+        <table>
+            <tr>
+                <td><label for="user">User id : </label></td>
+                <td><input type="text" name="user" id="user" placeholder="Enter user id" required autofocus minlength="3" pattern="[a-z0-9]+[@][a-z]+[\.][a-z]+" maxlength="20" ><span style="color: red
+                    ;">*</span></td>
+                <td id="erruname" ></td>
+            </tr>
+            <tr>
+                <td><label for="passwd">Password : </label> </td>
+                <td><input type="password" name="passwd" id="passwd" placeholder="Enter password" required ><span style="color: red
+                    ;">*</span></td>
+                <td id="errpass"></td>
+            </tr>
+            <tr>
+                <td><label for="cpass">Confirm Password :</label> </td>
+                <td><input type="password" name="cpass" id="cpass" placeholder="Confirm password" ><span style="color: red
+                    ;">*</span></td>
+                <td id="errcpass"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit" name="btn" id="btn" value="login" >Login User</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" name="cancel" id="cancel" value="cancel" >Cancel</button>
+                </td>
+
+                
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

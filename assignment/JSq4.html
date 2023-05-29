@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+    <script>
+        function validatenum(nmid,error){
+            var g = document.getElementById(nmid).value
+
+            if(g==="" || isNaN(g))
+            {
+                document.getElementById(error).innerHTML="Enter numeric value";
+                return false;
+            }
+            else
+            {
+                document.getElementById(error).innerHTML="";
+                return true;
+            }
+        }
+        function calculate(){
+            var x = validatenum('num1','err1');
+            var y = validatenum('num2','err2');
+
+            if(x && y){
+            var a = parseInt(document.getElementById('num1').value)
+            var b = parseInt(document.getElementById('num2').value)
+            var result;
+            var sel=document.getElementById('op');
+            var ind=sel.selectedIndex;
+            var swh = sel.options[ind].value;
+
+            switch(swh){
+
+                case "+" :
+                result=a+b;
+                document.getElementById('result').value=result;
+                break;
+
+                case "-" :
+                result=a-b;
+                document.getElementById('result').value=result;
+                break;
+
+                case "*" :
+                result=a*b;
+                document.getElementById('result').value=result;
+                break;
+
+                case "/" :
+                result=a/b;
+                document.getElementById('result').value=result;
+                break;
+            }
+        }
+        
+        }
+    </script>
+</head>
+<body>
+    Enter Number 1 : <input type="text" name="num1" id="num1" ><span>*</span><span id="err1" ></span>
+    <br><br>
+    Enter Number 2 : <input type="text" name="num2" id="num2" ><span>*</span><span id="err2" ></span>
+    <br><br>
+    
+    Select operator : <select name="op" id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <button type="button" name="btn" id="btn" onclick="calculate()">Calculate</button>
+    <br><br>
+    Result : <input type="text" name="result" id="result" disabled>
+</body>
+</html>

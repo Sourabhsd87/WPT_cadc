@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getTable(){
+            var a = document.getElementById('num').value
+            for(var i=1;i<=10;i++){
+                var p = a*i;
+                document.write(a+"*"+i+"="+p+"<br>" );
+
+                <!-- document.getElementById('abc').innerHTML=a+"*"+i+"="+p+"<br>" -->
+            }
+        }
+    </script>
+</head>
+<body>
+    Enter a number : <input type="text" name="num" id="num" >
+
+    <button type="button" name="btn" id="btn" onclick="getTable()">Enter</button>
+
+    <div id="abc" ></div>
+</body>
+</html>
