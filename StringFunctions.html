@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Functions</title>
+    <script>
+        function changestr(){
+            var sel = document.getElementById('operation');
+            var pos = sel.selectedIndex
+            //alert(sel.options[pos].value);
+            var cal = sel.options[pos].value
+            var str = document.getElementById('str').value;
+
+            switch(cal)
+            {
+                case "upper":
+                    result = "Upper Case ="+str.toUpperCase();
+                    break;
+                case "lower":
+                    result = "Lower Case ="+str.toLowerCase();
+                    break;
+                case "charAt":
+                    p=prompt("Enter Position to find character")
+                    result = "position ="+str.charAt(p);
+                    break;
+                case "slice" :
+                    s=prompt("Enter start and end position as comma seperated");
+                    arr = s.split(',')
+                    result = "Concatenate Strings :"+str.slice(arr[0],arr[1]);
+                    break;
+                case "concat" :
+                        e = prompt("Enter string to concat :");
+                        result = "Concated String :" +str.concat(e);
+                        break;    
+                case "match" :
+                    // c=prompt("enter pattern to match")
+                    pattern=/m/gi
+                    result = "Match :"+str.match(pattern);
+                    break; 
+                case "search" :
+                    pattern=/a/gi
+                    result="Position :"+str.search(pattern);
+                    break; 
+                case "split" :
+                        s = prompt("Enter Delimiter")
+                        result = "split data:"+str.split(s);
+                    break;
+                case "replace" :
+                    pattern = /a/i;
+                    result="Replace:"+str.replace(pattern,'x');
+                    break; 
+                case "IndexOf" :
+                    s = prompt("Enter string to search:")
+                    result = "index of data :"+str.indexOf(s);
+                    break;  
+                case "includes" :
+                    s=prompt("enter string to search:");
+                    result="index of data : "+str.includes(s);
+                    break;
+
+              }
+            document.getElementById('mydiv').innerHTML="<br>"+result;
+        }
+    </script>
+</head>
+<body>
+    Enter String : <input type="text" name="str" id="str" >
+    <select name="op" id="operation">
+        <option value="upper" >upper case</option>
+        <option value="lower" >lower case</option>
+        <option value="charAt" >charAt</option>
+        <option value="slice" >slice</option>
+        <option value="concat" >concat</option>
+        <option value="match" >match</option>
+        <option value="search" >search</option>
+        <option value="replace" >replace</option>
+        <option value="split" >split</option>
+        <option value="IndexOf" >IndexOf</option>
+        <option value="includes" >includes</option>
+    </select>
+    <br><br>
+    <button type="button" name="btn" id="btn" value="btn" onclick="changestr()">Apply changes</button>
+
+    <div id="mydiv">
+
+    </div>
+</body>
+</html>

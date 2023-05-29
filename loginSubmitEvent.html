@@ -9,15 +9,21 @@
         function validatepassword(){
             var pass = document.getElementById('passwd').value
             var cpass = document.getElementById('cpass').value
-
-            if(pass===cpass){
-                document.getElementById('errpass').innerHTML="";
-                document.getElementById('errcpass').innerHTML="";
-                return true;
+            var id = document.getElementById('user').value
+            if(id!==pass){
+                if(pass===cpass){
+                    document.getElementById('errpass').innerHTML="";
+                    document.getElementById('errcpass').innerHTML="";
+                    return true;
+                }
+                else{
+                    document.getElementById('errpass').innerHTML=" ";
+                    document.getElementById('errcpass').innerHTML="passwords don\'t match";
+                    return false;
+                }
             }
             else{
-                document.getElementById('errpass').innerHTML=" ";
-                document.getElementById('errcpass').innerHTML="passwords don\'t match";
+                document.getElementById('errpass').innerHTML="Id and password cannot be same";
                 return false;
             }
         }
