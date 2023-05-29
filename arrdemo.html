@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        arr=[];
+        function displaylist(){
+            str="<ul>"
+            for(var i=0;i<arr.length;i++){
+                str+="<li>"+arr[i]+"</li>";
+            }
+            str+="</ul>"
+            console.log(str);
+            document.getElementById('namelist').innerHTML=str;
+        }
+        function addname(){
+            nm=document.getElementById('name').value;
+            arr.push(nm);
+            displaylist();
+        }
+    </script>
+</head>
+<body>
+    Name : <input type="text" name="name" id="name">
+    <button type="button" name="btn" id="add" value="add" onclick="addname()">Add new</button>
+    <button type="button" name="btn" id="delete name" value="delete name" onclick="deleteName()" >Delete Name</button>
+
+    <div id="namelist" >
+
+    </div>
+</body>
+</html>

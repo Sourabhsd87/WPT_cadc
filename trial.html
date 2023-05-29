@@ -1,25 +1,42 @@
 <html>
-    <body background="./images/flowers.png" text="red" link="blue" vlink="green" alink="red">
-        <a href="http://amazon.in">amazon visit</a>
-        <a href="./tabledemo.html"> display table</a>
-        <img src="./images/clock.jpg" width="200px" vspace="20px" hspace="20px" height="300px" style="float:right"></img>
-        <div>
-            This is http request will dirctly go to server
-        
-        
-            After you click on the link this entire page will be changed to new response
-            It will not update portion of the page
-            It is time consuming
-            and dosnot give good user experience
-            After you click on the link this entire page will be changed to new response
-            It will not update portion of the page
-            It is time consuming
-            and dosnot give good user experience
-            After you click on the link this entire page will be changed to new response
-            It will not update portion of the page
-            It is time consuming
-            and dosnot give good user experience 
+    <head>
+        <script>
+            function displayTable( resp){
+                var str="<table border='2'><tr><th>Id</th><th>UseId</th><th>title</th><th>body</th></tr>"
+                    for(var ob of resp){
+                        str+=`<tr><td>${ob.id}</td><td>${ob.userId}</td><td>${ob.title}</td><td>${ob.body}</td></tr>`
+                    }
+                    str+="</table>"
+                    document.getElementById("mydiv").innerHTML=str;
+            }
+            //var p;
+            function sendrequest(){
+                p=fetch("https://jsonplaceholder.typicode.com/posts/");
+                p.then((result)=>{console.log("fullfilled")
+                console.log(result);
+                if(result.status==200 && result.ok){
+                    return result.json()
+                }
+                throw "data not found"
+            }).then((data)=>{
+                console.log("in 2nd then");
+                console.log(data);
+                //var resp=JSON.parse(data);
+                console.log(data);
+                displayTable( data);
+            }).catch((err)=>{
+                console.log("error ocuured",err)
+            })
+            }
+            
+        </script>
+    </head>
+    <body>
+        <button type="text" name="btn" id="btn" value="btn" onclick="sendrequest()">
+            send ajax request
+        </button>
+        <div id="mydiv">
+
         </div>
-        <hr size="3px" color="blue" width="60%" align="left">
     </body>
 </html>
