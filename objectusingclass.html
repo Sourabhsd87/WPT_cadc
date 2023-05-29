@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class person{
+            constructor(id,nm,mob){
+                this.id=id;
+                this.name=nm;
+                this.mobile=mob;
+            }
+            display(){
+                console.log("id "+this.id+",name "+this.name+ ",mobile"+-this.mobile)
+            }
+        }
+        class employee extends person{
+            constructor(id,nm,mob,dt,ds){
+                super(id,nm,mob)
+                this.dt=dt;
+                this.ds=ds;
+            }
+            display(){
+                super.display()
+                console.log("dept:"+this.dt+",designation:"+this.ds)
+            }
+        }
+        p1=new person(12,"sourabh",23333);
+        p1.display();
+    </script>
+</body>
+</html>
