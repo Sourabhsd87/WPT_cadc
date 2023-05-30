@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            $(document).ready(function(){
+                var cnt=0
+                $('#btn2').one("click",function(){
+                    alert("Hello");
+                })
+                $('#btn').on("click",function(){
+                    var c=$('#nm').clone()
+                    //c.attr("id","nm"+cnt)
+                    c.attr({"id":"nm"+cnt,"name":"nm"+cnt})
+                    $(c).val("")
+                    cnt++;
+                    $('#mydiv').append(c);
+                    $('#mydiv').append("<br>");
+
+                    
+                })
+
+
+                $('#btn1').click(function(){
+                    $('#btn').off("click");
+                    var str=""
+                    $('input[name^=nm]').each(function(index, element){
+                        str+=$(element).val()
+                    
+                    })
+                    $('#mydiv1').html(str);
+                    
+                })
+            })
+        </script>
+
+    </head>
+    <body>
+        <div id="mydiv">
+        Name : <input type="text" name="nm" id="nm">
+        <button type="button" name="btn" id="btn" value="btn">add new</button>
+        <button type="button" name="btn" id="btn1" value="show">show selected</button><br>
+        <button type="button" name="btn" id="btn2" value="one">one time event</button><br>
+    </div>
+    <div id="mydiv1">
+
+    </div>
+    </body>
+</html>
